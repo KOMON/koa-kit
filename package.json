@@ -1,0 +1,37 @@
+{
+  "name": "koa-kit",
+  "version": "1.0.0",
+  "description": "Koa + TS Quickstart",
+  "main": "lib/server.ts",
+  "scripts": {
+    "unit-test": "npx jest --coverage",
+    "test": "npm run clean && npm run build && npm run unit-test",
+    "cucumber": "npm run clean && npm run build && npx cucumber-js --tags \"not @skip\" test/features -f node_modules/cucumber-pretty --require-module ts-node/register --require build/dist/test/features/support --exit",
+    "clean": "rm -rf build",
+    "build": "tsc",
+    "start": "npm run clean && npm run build && node build/dist/lib/server.js",
+    "debug": "npm run clean && npm run build && node --inspect-brk build/dist/lib/server.js"
+  },
+  "author": "Dan Raloff",
+  "license": "ISC",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/cucumber": "^6.0.1",
+    "axios": "^0.20.0",
+    "cucumber": "^6.0.5",
+    "cucumber-pretty": "^6.0.0",
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^9.4.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.11.4",
+    "@types/koa-bodyparser": "^4.3.0",
+    "@types/koa-router": "^7.4.1",
+    "@types/node": "^14.10.1",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.3.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  }
+}
